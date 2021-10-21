@@ -8,7 +8,7 @@ public class CollisionCheck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("Time to start colliding");
     }
 
     // Update is called once per frame
@@ -19,6 +19,6 @@ public class CollisionCheck : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("I have collided with " + other.name);
+        Debug.Log("I have collided");
     }
 }

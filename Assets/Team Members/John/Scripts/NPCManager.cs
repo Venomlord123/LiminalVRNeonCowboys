@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,18 +7,26 @@ using Random = UnityEngine.Random;
 
 public class NPCManager : MonoBehaviour
 {
-    public static List<Transform> availableSpawns = new List<Transform>();
+    private static List<Transform> availableSpawns = new List<Transform>();
 
-    public List<NPC> remainingEnemies;
-
+    public List<GameObject> remainingEnemies;
+    //REFERENCES
     public GameObject NPC;
-
     public GameObject Boss;
-
-    public int nextSpawn;
-
+    
+    //VARIABLES
+    //private variable for setting location of next spawn
+    private int nextSpawn;
+    //number of the current wave
     public int waveCount;
-    public float waveDelay;
+    //number of rounds to complete to reach the boss
+    public int bossWave;
+    //number of enemies to spawn in each wave
+    public int numberToSpawn;
+    //number of extra enemies per wave
+    public int extraEnemies;
+    //delay between spawning each NPC
+    public float spawnDelay;
     
     
 
@@ -27,14 +36,17 @@ public class NPCManager : MonoBehaviour
     }
     public static void RemoveSpawnPoint(Transform transform) => availableSpawns.Remove(transform);
 
-    private void Start()
+    private void Update()
     {
-        SpawnNPC();
+        if (Input.GetButtonDown("Fire1"))
+        {
+            StartCoroutine(Spawn());
+        }
     }
 
-    void SpawnNPC()
+    public IEnumerator Spawn()
     {
-        for (int i = 0; i < waveCount; i++)
+        for (int i = 0; i < numberToSpawn; i++)
         {
             nextSpawn = Random.Range(0, availableSpawns.Count);
             Transform spawnPoint = availableSpawns.ElementAtOrDefault(nextSpawn);
@@ -42,11 +54,43 @@ public class NPCManager : MonoBehaviour
             if (spawnPoint == null)
             {
                 Debug.Log($"Missing spawn point for items at {nextSpawn}");
-                return;
+                yield return null;
             }
-
-            Instantiate(NPC, spawnPoint.position, spawnPoint.rotation);
+            GameObject thisNPC = Instantiate(NPC, spawnPoint.position, spawnPoint.rotation);
+            remainingEnemies.Add(thisNPC);
+            yield return new WaitForSeconds(spawnDelay);
         }
 
+        yield return null;
     }
+
+    public void Die(GameObject thisNPC)
+    {
+        remainingEnemies.Remove(thisNPC);
+        Destroy(thisNPC);
+
+        if (remainingEnemies.Count == 0 && waveCount != bossWave)
+        {
+            NextWave();
+        }
+
+        if (remainingEnemies.Count == 0 && waveCount == bossWave)
+        {
+            BossRound();
+        }
+    }
+
+    public void NextWave()
+    {
+        numberToSpawn = numberToSpawn + extraEnemies;
+        waveCount++;
+        StartCoroutine(Spawn());
+    }
+
+    public void BossRound()
+    {
+        //spawn the boss and do the cool stuff
+        Debug.Log("It's time for a boss battle!");
+    }
+    
 }

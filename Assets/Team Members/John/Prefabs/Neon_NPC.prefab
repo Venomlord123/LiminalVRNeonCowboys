@@ -118,6 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8309302225159428492}
+  - component: {fileID: 2599595270515521915}
   m_Layer: 0
   m_Name: Neon_NPC
   m_TagString: Untagged
@@ -142,6 +143,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2599595270515521915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4975293970594360223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a16b5327a0fc849a623921116596a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 3
+  currentHealth: 0
+  manager: {fileID: 1374625281616966750, guid: 28d1c1927d534f34b9f715b762d0cc95, type: 3}
 --- !u!1 &7417151389026225889
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using Valve.VR.InteractionSystem;
 public class GameManager : MonoBehaviour
 {
     public NPCManager NpcManager;
+    public SoundManager soundManager;
     public float startDelay;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(startDelay);
         StartCoroutine(NpcManager.Spawn());
-
+        soundManager.PlayOST();
     }
 
 }

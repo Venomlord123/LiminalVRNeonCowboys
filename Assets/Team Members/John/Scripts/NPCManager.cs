@@ -67,7 +67,7 @@ public class NPCManager : MonoBehaviour
     public void Die(GameObject thisNPC)
     {
         remainingEnemies.Remove(thisNPC);
-        //Destroy(thisNPC);
+        Destroy(thisNPC);
 
         if (remainingEnemies.Count == 0 && waveCount != bossWave)
         {

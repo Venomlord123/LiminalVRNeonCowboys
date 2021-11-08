@@ -10,11 +10,7 @@ public class Gun : MonoBehaviour
     public Transform bulletSpawnPos;
     public float fireRate;
     private float nextFire = 0f;
-
-    private void Start()
-    {
-        throw new NotImplementedException();
-    }
+    public AudioSource gunSFX;
 
     public void Update()
     {
@@ -24,6 +20,7 @@ public class Gun : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             Instantiate(bullet, bulletSpawnPos.position, transform.rotation);
+            gunSFX.Play();
         }
     }
 }

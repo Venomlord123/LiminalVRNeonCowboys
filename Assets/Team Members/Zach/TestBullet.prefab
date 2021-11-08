@@ -107,6 +107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4468209030339385214}
   speed: 100
+  time: 0
+  lifeTime: 10
+  damage: 0
 --- !u!54 &4468209030339385214
 Rigidbody:
   m_ObjectHideFlags: 0

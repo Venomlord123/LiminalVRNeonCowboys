@@ -1,26 +1,87 @@
-﻿using System;
-using Liminal.SDK.VR;
-using Liminal.SDK.VR.Input;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public GameObject bullet;
-    public float triggerFloat;
-    public Transform bulletSpawnPos;
+    //Object Pooling Variables
+    public static Gun SharedInstance;
+    public List<GameObject> bullets;
+    public GameObject laser;
+    public int amountToPool;
+    //Variables
     public float fireRate;
-    private float nextFire = 0f;
     public AudioSource gunSFX;
+    public bool isRight;
+    public bool isLeft;
+    private float nextFire;
+
+
+    public void Awake()
+    {
+        SharedInstance = this;
+    }
+
+    public void Start()
+    {
+        bullets = new List<GameObject>();
+        GameObject tempBullet;
+        for (int i = 0; i < amountToPool; i++)
+        {
+            tempBullet = Instantiate(laser);
+            tempBullet.SetActive(false);
+            bullets.Add(tempBullet);
+        }
+    }
 
     public void Update()
     {
-        triggerFloat = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.RTouch);
-        
-        if(OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.RTouch) >= 0.1f && Time.time > nextFire)
+        if (isRight)
         {
-            nextFire = Time.time + fireRate;
-            Instantiate(bullet, bulletSpawnPos.position, transform.rotation);
-            gunSFX.Play();
+            if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.RTouch) >= 0.1f &&
+                Time.time > nextFire)
+            {
+                GameObject laser = SharedInstance.GetPooledObject();
+                if (laser != null)
+                {
+                    nextFire = Time.time + fireRate;
+                    laser.transform.position = transform.position;
+                    laser.transform.rotation = transform.rotation;
+                    laser.GetComponent<Rigidbody>().AddForce(Vector3.forward);
+                    laser.SetActive(true);
+                    gunSFX.Play();
+                }
+            }
         }
+
+        if (isLeft)
+        {
+            if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.LTouch) >= 0.1f &&
+                Time.time > nextFire)
+            {
+                GameObject laser = SharedInstance.GetPooledObject();
+                if (laser != null)
+                {
+                    nextFire = Time.time + fireRate;
+                    laser.transform.position = transform.position;
+                    laser.transform.rotation = transform.rotation;
+                    laser.GetComponent<Rigidbody>().AddForce(Vector3.forward);
+                    laser.SetActive(true);
+                    gunSFX.Play();
+                }
+            }
+        }
+    }
+
+    public GameObject GetPooledObject()
+    {
+        for (int i = 0; i < amountToPool; i++)
+        {
+            if (!bullets[i].activeInHierarchy)
+            {
+                return bullets[i];
+            }
+        }
+
+        return null;
     }
 }

@@ -7,7 +7,6 @@ public class Health : MonoBehaviour
 {
     public int startingHealth;
     public int currentHealth;
-
     public NPCManager manager;
 
     private void Awake()

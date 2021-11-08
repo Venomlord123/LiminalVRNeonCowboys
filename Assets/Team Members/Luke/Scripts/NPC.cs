@@ -1,32 +1,45 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 public class NPC : MonoBehaviour
 {
-    //References
-    //gun or guns
-    //health
-    //User
-
-    //Variables
+    [Tooltip("The position from which the NPC is able to fire a bullet")]
+    public Transform NPCFirePoint;
+    private Transform playerTarget;
+    private Vector3 shotTarget;
+    [Tooltip("The percentage chance for the NPC to miss the player")]
+    public float chanceToHit;
+    [Tooltip("The amount to offset the NPC's target in the X value only. This value will apply to both negative and positive variance")]
+    public int xVariance;
+    [Tooltip("The amount to offset the NPC's target in the Y value only. This value will apply to both negative and positive variance")]
+    public int yVariance;
+    private Vector3 directionToTarget;
+    [Tooltip("The amount of time, in seconds, that the NPC should wait before firing each shot")]
     public float shotDelay;
-    //public gameobject laser1 
-    // laser2
-    public int nextBullet;
-    public Transform player;
-    public Transform npcArm;
-
-    private void Awake()
-    {
-        //reference to guns to getComponent GameObject laser1 & laser2
-    }
     
-    // Update is called once per frame
-    void Update()
+   void Update()
     {
-        
+        playerTarget = GameObject.Find("Player").transform;
+        directionToTarget = (playerTarget.position - transform.position).normalized;
+
+         var chanceCheck =  Random.Range(min: 0f, max: 100f);
+        //WORK ON THIS BECAUSE YOU SUCK AT MATH
+        if (chanceCheck > chanceToHit)
+        { 
+            var offset = new Vector3(Random.Range(-xVariance, xVariance), Random.Range(-yVariance, yVariance), 0);
+            shotTarget = playerTarget.position + offset;
+        }
+
+        NPCFirePoint.transform.LookAt(shotTarget);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(NPCFirePoint.position,shotTarget);
     }
 
     public IEnumerator Shooting()

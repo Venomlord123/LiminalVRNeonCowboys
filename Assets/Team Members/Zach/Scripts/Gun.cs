@@ -7,6 +7,9 @@ public class Gun : MonoBehaviour
 {
     public GameObject bullet;
     public float triggerFloat;
+    public Transform bulletSpawnPos;
+    public float fireRate;
+    private float nextFire = 0f;
 
     private void Start()
     {
@@ -17,9 +20,10 @@ public class Gun : MonoBehaviour
     {
         triggerFloat = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.RTouch);
         
-        if(OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.RTouch) >= 0.1f)
+        if(OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.RTouch) >= 0.1f && Time.time > nextFire)
         {
-            Instantiate(bullet, transform.position, new Quaternion());
+            nextFire = Time.time + fireRate;
+            Instantiate(bullet, bulletSpawnPos.position, transform.rotation);
         }
     }
 }

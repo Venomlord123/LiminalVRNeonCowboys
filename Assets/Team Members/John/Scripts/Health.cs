@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [Tooltip("The amount of health that each enemy will spawn with")]
     public int startingHealth;
+    [Tooltip("The current health of the enemy. Do not adjust this value in Inspector!")]
     public int currentHealth;
-    public NPCManager manager;
+    private NPCManager manager;
 
     private void Awake()
     {

@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4431303589928205629}
   m_Layer: 0
   m_Name: Neon_NPC
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,9 +160,6 @@ MonoBehaviour:
   xVariance: 2
   yVariance: 1
   shotDelay: 0
-  nextBullet: 0
-  player: {fileID: 0}
-  npcArm: {fileID: 0}
 --- !u!1 &7417151389026225889
 GameObject:
   m_ObjectHideFlags: 0

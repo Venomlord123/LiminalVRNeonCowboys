@@ -8,28 +8,36 @@ using Random = UnityEngine.Random;
 public class NPCManager : MonoBehaviour
 {
     private static List<Transform> availableSpawns = new List<Transform>();
+    [Tooltip("The position to spawn the boss when the boss round is reached")]
+    public Transform bossLocation;
 
-    public List<GameObject> remainingEnemies;
+    
     //REFERENCES
+    [Tooltip("The base enemy that will be spawned within each wave")]
     public GameObject NPC;
+    [Tooltip("The boss enemy that will spawn once a boss round is reached")]
     public GameObject Boss;
     
     //VARIABLES
     //private variable for setting location of next spawn
     private int nextSpawn;
-    //number of the current wave
+    [Tooltip("The number of the current wave")]
     public int waveCount;
-    //number of rounds to complete to reach the boss
+    [Tooltip("The number of waves required to be completed in order to trigger the boss encounter")]
     public int bossWave;
-    //number of enemies to spawn in each wave
+    [Tooltip("The base number of enemies to spawn each wave")]
     public int numberToSpawn;
-    //number of extra enemies per wave
+    [Tooltip("The number of extra enemies to spawn with each wave completed. NOTE: This number is compounding with each wave")]
     public int extraEnemies;
-    //delay between spawning each NPC
+    [Tooltip("The amount, in seconds, of time to wait before spawning each enemies within a single wave. Set this to 0 for all enemies to spawn at the same time")]
     public float spawnDelay;
+    [Tooltip("The amount, in seconds, of time to wait before starting the next wave")]
+    public float waveDelay;
+    [Tooltip("The amount, in seconds, of time to wait before starting the boss wave, once it has been reached")]
+    public float bossDelay;
+    [Tooltip("A list of all the enemies that were spawned in the current wave. Kill each enemy in this list to progress to the next wave")]
+    public List<GameObject> remainingEnemies;
     
-    
-
     public static void AddSpawnPoint(Transform transform)
     {
         availableSpawns.Add(transform);
@@ -64,33 +72,57 @@ public class NPCManager : MonoBehaviour
         yield return null;
     }
 
-    public void Die(GameObject thisNPC)
+    public void Die(GameObject thisEnemy)
     {
-        remainingEnemies.Remove(thisNPC);
-        Destroy(thisNPC);
-
-        if (remainingEnemies.Count == 0 && waveCount != bossWave)
+        if (thisEnemy.CompareTag("Boss"))
         {
-            NextWave();
+            Destroy(thisEnemy);
+            EndGame();
+            return;
         }
-
+        remainingEnemies.Remove(thisEnemy);
+        Destroy(thisEnemy);
+        
         if (remainingEnemies.Count == 0 && waveCount == bossWave)
         {
-            BossRound();
+            StartCoroutine(BossRound());
+            return;
         }
+        
+        if (remainingEnemies.Count == 0 && waveCount != bossWave)
+        {
+            StartCoroutine(NextWave());
+        }
+
+        
     }
 
-    public void NextWave()
+    public IEnumerator NextWave()
     {
         numberToSpawn = numberToSpawn + extraEnemies;
         waveCount++;
+        yield return new WaitForSeconds(waveDelay);
         StartCoroutine(Spawn());
     }
 
-    public void BossRound()
+    public IEnumerator BossRound()
     {
-        //spawn the boss and do the cool stuff
         Debug.Log("It's time for a boss battle!");
+        yield return new WaitForSeconds(bossDelay);
+        Instantiate(Boss, bossLocation.position, bossLocation.rotation);
     }
-    
+
+    public void EndGame()
+    {
+        Debug.Log("Congrats, you beat the boss!");
+    }
+
+    public void KillAllNPC()
+    {
+        for (int i = 0; i < remainingEnemies.Count;)
+        {
+            remainingEnemies[i].GetComponent<Health>().Damage(remainingEnemies[i].GetComponent<Health>().currentHealth);
+        }
+    }
+
 }

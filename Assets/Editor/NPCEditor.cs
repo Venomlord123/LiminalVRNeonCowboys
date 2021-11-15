@@ -14,5 +14,10 @@ public class NPCEditor : Editor
         {
             (target as NPCManager)?.KillAllNPC();
         }
+
+        if (GUILayout.Button("Kill The Boss \n (Only Click If Boss Has Spawned)"))
+        {
+            (target as NPCManager)?.KillBoss();
+        }
     }
 }

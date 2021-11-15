@@ -125,4 +125,15 @@ public class NPCManager : MonoBehaviour
         }
     }
 
+    public void KillBoss()
+    {
+        GameObject boss = GameObject.FindWithTag("Boss");
+        if (!boss)
+        {
+            Debug.Log("Don't be silly, there is no boss here!");
+            return;
+        }
+        boss.GetComponent<Health>().Damage(boss.GetComponent<Health>().currentHealth);
+    }
+
 }

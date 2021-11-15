@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4858640096158603203}
+  - component: {fileID: 5458618169588169433}
+  - component: {fileID: 4906415500691967315}
   m_Layer: 0
   m_Name: NPC Projectile
   m_TagString: Untagged
@@ -24,13 +26,46 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935576223828402539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 452.4301, y: 138.36485, z: 200.76787}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 2595886655369903353}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &5458618169588169433
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935576223828402539}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4906415500691967315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935576223828402539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1270736f09adfd24eb9ca0ba4b31e281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 5458618169588169433}
+  speed: 1000
+  time: 0
+  lifeTime: 7
+  damage: 1
 --- !u!1001 &7024707111831885795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38,50 +73,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4858640096158603203}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 7782cc9e12c5d3640aaf264f2f534ada,
-        type: 3}
-      propertyPath: m_Name
-      value: Particle_Texture2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8172177242309956260, guid: 7782cc9e12c5d3640aaf264f2f534ada,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d9dabdd97e381ba4bb231cf70bc87332, type: 2}
     - target: {fileID: -4216859302048453862, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -224.83011
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 139.78514
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -447.31787
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}
@@ -96,13 +121,23 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7782cc9e12c5d3640aaf264f2f534ada,
+        type: 3}
+      propertyPath: m_Name
+      value: Particle_Texture2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8172177242309956260, guid: 7782cc9e12c5d3640aaf264f2f534ada,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9dabdd97e381ba4bb231cf70bc87332, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7782cc9e12c5d3640aaf264f2f534ada, type: 3}
 --- !u!4 &2595886655369903353 stripped

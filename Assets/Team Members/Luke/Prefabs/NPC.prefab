@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 8528736594959810907}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -533,7 +533,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 5
   currentHealth: 5
-  manager: {fileID: 0}
 --- !u!54 &8664858675685617227
 Rigidbody:
   m_ObjectHideFlags: 0

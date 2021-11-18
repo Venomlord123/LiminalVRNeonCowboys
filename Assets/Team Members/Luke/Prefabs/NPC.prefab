@@ -581,6 +581,8 @@ MonoBehaviour:
   amountToPool: 15
   timeTillShoot: 0
   shootTime: 3
+  canShoot: 0
+  playerLocation: {fileID: 0}
   gunSFX: {fileID: 3489373726422911163}
 --- !u!82 &3489373726422911163
 AudioSource:
@@ -638,7 +640,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

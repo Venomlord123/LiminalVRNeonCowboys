@@ -6784,10 +6784,10 @@ MonoBehaviour:
   NPC: {fileID: 8322883095477117359, guid: 4a9236eb89ae447439cbf910bd113fa2, type: 3}
   Boss: {fileID: 6793286549594485554, guid: 8e4880d1fd532cf41ac76e2e6a034470, type: 3}
   waveCount: 0
-  bossWave: 4
+  bossWave: 3
   numberToSpawn: 1
   extraEnemies: 2
-  spawnDelay: 0.4
+  spawnDelay: 0.5
   waveDelay: 3
   bossDelay: 5
   remainingEnemies: []

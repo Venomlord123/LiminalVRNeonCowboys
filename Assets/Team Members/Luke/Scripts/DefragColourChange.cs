@@ -27,15 +27,18 @@ public class DefragColourChange : MonoBehaviour
 
             if (mat.color == Color.green)
             {
-                mat.SetColor("_EmissionColor", Color.green);
-                mat.color = Color.green;
-                
-                yield return new WaitForSeconds(Random.Range(greenBlueChangeTimeMin,greenBlueChangeTimeMax));
-            
                 mat.SetColor("_EmissionColor", Color.blue);
                 mat.color = Color.blue;
             }
+            else
+            {
+                mat.SetColor("_EmissionColor", Color.green);
+                mat.color = Color.green;
+            }
+            yield return new WaitForSeconds(Random.Range(greenBlueChangeTimeMin,greenBlueChangeTimeMax));
         }
+
+        StartCoroutine(ColourChangeGreenBlue());
     }
 
     public IEnumerator ColourChangeRedWhite()

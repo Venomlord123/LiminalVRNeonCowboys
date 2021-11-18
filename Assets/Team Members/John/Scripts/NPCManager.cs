@@ -6,8 +6,9 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class NPCManager : MonoBehaviour
-{
-    private static List<Transform> availableSpawns = new List<Transform>();
+{   
+    [Tooltip("The list of all available spawns currently not occupied by another NPC")]
+    [SerializeField] private static List<Transform> availableSpawns = new List<Transform>();
     [Tooltip("The position to spawn the boss when the boss round is reached")]
     public Transform bossLocation;
 
@@ -52,6 +53,15 @@ public class NPCManager : MonoBehaviour
         }
     }
 
+    public void ReFillSpawns()
+    {
+        NPC_Spawner[] spawns = GameObject.FindObjectsOfType<NPC_Spawner>();
+        foreach (var spawner in spawns)
+        {
+            availableSpawns.Add(spawner.transform);
+        }
+    }
+
     public IEnumerator Spawn()
     {
         for (int i = 0; i < numberToSpawn; i++)
@@ -66,6 +76,7 @@ public class NPCManager : MonoBehaviour
             }
             GameObject thisNPC = Instantiate(NPC, spawnPoint.position, spawnPoint.rotation);
             remainingEnemies.Add(thisNPC);
+            availableSpawns.RemoveAt(nextSpawn);
             yield return new WaitForSeconds(spawnDelay);
         }
 
@@ -101,6 +112,8 @@ public class NPCManager : MonoBehaviour
     {
         numberToSpawn = numberToSpawn + extraEnemies;
         waveCount++;
+        availableSpawns.Clear();
+        ReFillSpawns();
         yield return new WaitForSeconds(waveDelay);
         StartCoroutine(Spawn());
     }

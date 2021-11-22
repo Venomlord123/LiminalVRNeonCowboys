@@ -88,7 +88,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3403722784019729469}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -109,8 +109,10 @@ MonoBehaviour:
   speed: 1000
   time: 0
   lifeTime: 7
+  originalScale: {x: 0, y: 0, z: 0}
   maxScale: {x: 10, y: 0, z: 0}
   damage: 1
+  tranfromScale: {x: 0, y: 0, z: 0}
 --- !u!54 &4548949611426340104
 Rigidbody:
   m_ObjectHideFlags: 0

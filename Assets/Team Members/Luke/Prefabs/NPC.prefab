@@ -576,11 +576,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540fa0915f2808f45befec27f4803578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lasers: []
-  laser: {fileID: 1935576223828402539, guid: 8c82ad4fd30998543b3702d03484c629, type: 3}
+  straightLasers: []
+  longLasers: []
+  straightLaser: {fileID: 1935576223828402539, guid: 8c82ad4fd30998543b3702d03484c629,
+    type: 3}
+  longLaser: {fileID: 3403722784019729469, guid: eeeb16705ddeb4c47ae257c54bfa7423,
+    type: 3}
   amountToPool: 15
   timeTillShoot: 0
   shootTime: 3
+  chanceToShoot: 0.5
   canShoot: 0
   playerLocation: {fileID: 0}
   gunSFX: {fileID: 3489373726422911163}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Liminal.SDK.VR.Avatars;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,10 +20,14 @@ public class NPC : MonoBehaviour
     private Vector3 directionToTarget;
     [Tooltip("The amount of time, in seconds, that the NPC should wait before firing each shot")]
     public float shotDelay;
-    
-   void Update()
+
+    private void Start()
     {
-        playerTarget = GameObject.Find("Player").transform;
+        playerTarget = FindObjectOfType<VRAvatar>().transform;
+    }
+
+    void Update()
+    {
         directionToTarget = (playerTarget.position - transform.position).normalized;
 
          var chanceCheck =  Random.Range(min: 0f, max: 100f);

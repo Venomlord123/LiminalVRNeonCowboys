@@ -1489,6 +1489,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 7782cc9e12c5d3640aaf264f2f534ada,
+        type: 3}
+      propertyPath: m_Name
+      value: Particle_Texture2
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1543,11 +1548,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 7782cc9e12c5d3640aaf264f2f534ada,
-        type: 3}
-      propertyPath: m_Name
-      value: Particle_Texture2
       objectReference: {fileID: 0}
     - target: {fileID: -8172177242309956260, guid: 7782cc9e12c5d3640aaf264f2f534ada,
         type: 3}

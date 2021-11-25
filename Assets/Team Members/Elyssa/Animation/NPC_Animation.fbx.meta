@@ -29,7 +29,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -49,8 +49,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -70,7 +70,7 @@ ModelImporter:
       name: Attack
       takeName: Take 001
       internalID: 6720303635017113406
-      firstFrame: 120
+      firstFrame: 127
       lastFrame: 144
       wrapMode: 0
       orientationOffsetY: 0
@@ -78,7 +78,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -136,7 +136,112 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: NPC_Animation(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NPC_Model1
+      parentName: NPC_Animation(Clone)
+      position: {x: 0.0726654, y: 19.555414, z: -0.00000057220456}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head 1
+      parentName: NPC_Model1
+      position: {x: -0.0726654, y: -26.822777, z: 0.00000057220456}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Chest 1
+      parentName: NPC_Model1
+      position: {x: -0.0726654, y: -26.822777, z: 0.00000057220456}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Arm 1
+      parentName: NPC_Model1
+      position: {x: -0.0726654, y: -26.822777, z: 0.00000057220456}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Shoulder 2
+      parentName: NPC_Model1
+      position: {x: -0.0726654, y: -26.822777, z: 0.00000057220456}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Shoulder 2
+      parentName: NPC_Model1
+      position: {x: -0.0726654, y: -26.822777, z: 0.00000057220456}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Arm 1
+      parentName: NPC_Model1
+      position: {x: -0.0726654, y: -26.822777, z: 0.00000057220456}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Body
+      parentName: NPC_Animation(Clone)
+      position: {x: -0.01505207, y: 26.525913, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Chest1
+      parentName: Body
+      position: {x: -0, y: -0.0000010390728, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Arm
+      parentName: Body
+      position: {x: 21.68784, y: -5.4176545, z: 1.7756931e-15}
+      rotation: {x: -0.7071068, y: 8.659561e-17, z: -8.659561e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Arm
+      parentName: Body
+      position: {x: -22.060957, y: -2.2627394, z: 3.743096e-14}
+      rotation: {x: -0.7071068, y: 8.659561e-17, z: -8.659561e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Shoulder
+      parentName: Body
+      position: {x: 18.728455, y: 11.946095, z: 2.0396222e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Shoulder
+      parentName: Body
+      position: {x: -20.32065, y: 10.043406, z: 3.1333646e-14}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Chest
+      parentName: NPC_Animation(Clone)
+      position: {x: -0.01505207, y: 26.525913, z: 0}
+      rotation: {x: 0.64868987, y: 0.7610529, z: -6.880252e-18, w: -8.632185e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Shoulder 1
+      parentName: Chest
+      position: {x: 13.135454, y: -18.473185, z: -2.3891703e-14}
+      rotation: {x: 0.9940863, y: 0.10859251, z: -3.0879984e-18, w: -6.1259276e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Arm 2
+      parentName: R_Shoulder 1
+      position: {x: -12.386885, y: 1.017323, z: -0.00000054406405}
+      rotation: {x: -0.70555604, y: -0.04680442, z: 0.70708585, w: 0.005444102}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: Chest
+      position: {x: 17.788607, y: 2.8690445, z: 1.0078205e-14}
+      rotation: {x: 0, y: 0, z: 0.07674643, w: 0.99705064}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bottom
+      parentName: Chest
+      position: {x: -20.338398, y: -5.32907e-16, z: -2.9962859e-15}
+      rotation: {x: 0.6486898, y: 0.7610529, z: 8.632184e-17, w: -6.8802542e-18}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Shoulder 1
+      parentName: Chest
+      position: {x: 8.828627, y: 20.384295, z: 4.7979305e-15}
+      rotation: {x: 6.0266063e-17, y: 7.070508e-17, z: 0.0037406222, w: 0.999993}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Arm 2
+      parentName: L_Shoulder 1
+      position: {x: -17.611523, y: 0.30331567, z: -0.00000048815684}
+      rotation: {x: 0.07768371, y: -0.7028266, z: 0.02934251, w: 0.7064977}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -147,7 +252,7 @@ ModelImporter:
     globalScale: 30
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

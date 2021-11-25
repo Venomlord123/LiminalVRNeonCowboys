@@ -20,10 +20,12 @@ public class NPCGun : MonoBehaviour
     public bool canShoot;
     public Transform playerLocation;
     public AudioSource gunSFX;
+    private Animator animator;
 
 
     public void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
         SharedInstance = this;
         playerLocation = FindObjectOfType<VRAvatarHead>().GetComponent<Transform>();
         canShoot = true;
@@ -65,6 +67,7 @@ public class NPCGun : MonoBehaviour
             GameObject laser = SharedInstance.GetPooledObject();
             if (laser != null)
             {
+                animator.Play("Attack");
                 laser.transform.position = transform.position;
                 if (longLasers.Contains(laser))
                 {

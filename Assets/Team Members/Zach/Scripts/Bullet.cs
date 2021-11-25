@@ -38,9 +38,9 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.HasComponent<NPC>())
+        if (other.gameObject.GetComponentInParent<Health>() != null)
         {
-            other.GetComponent<Health>().Damage(1);
+            other.gameObject.GetComponentInParent<Health>().Damage(1);
         }
     }
 }

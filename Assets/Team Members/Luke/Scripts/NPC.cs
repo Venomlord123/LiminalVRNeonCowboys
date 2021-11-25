@@ -20,9 +20,11 @@ public class NPC : MonoBehaviour
     private Vector3 directionToTarget;
     [Tooltip("The amount of time, in seconds, that the NPC should wait before firing each shot")]
     public float shotDelay;
+    private Animator animator;
 
     private void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         playerTarget = FindObjectOfType<VRAvatar>().transform;
     }
 

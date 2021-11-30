@@ -40,11 +40,11 @@ public class NPCBullet : MonoBehaviour
         transform.rotation = Quaternion.Euler(Vector3.zero);
     }
 
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.HasComponent<VRAvatar>())
+        if (other.gameObject.GetComponentInParent<Health>() != null)
         {
-            other.GetComponent<Health>().Damage(1);
+            other.gameObject.GetComponentInParent<Health>().Damage(1);
         }
-    }*/
+    }
 }

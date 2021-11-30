@@ -17500,5 +17500,16 @@ PrefabInstance:
       propertyPath: BypassReverbZones
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 791587704427418060, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689368738798204338, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 791587704263175089, guid: 928c63470929a2c48886e3c3fd502297, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 928c63470929a2c48886e3c3fd502297, type: 3}

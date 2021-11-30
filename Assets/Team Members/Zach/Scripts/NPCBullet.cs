@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Liminal.SDK.Extensions;
 using Liminal.SDK.VR.Avatars;
@@ -40,11 +41,12 @@ public class NPCBullet : MonoBehaviour
         transform.rotation = Quaternion.Euler(Vector3.zero);
     }
 
-    /*private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.HasComponent<VRAvatar>())
+        if (other.gameObject.GetComponentInParent<VRAvatar>())
         {
-            other.GetComponent<Health>().Damage(1);
+            gameObject.SetActive(false);
+            other.gameObject.GetComponentInParent<VRAvatar>().gameObject.GetComponentInChildren<Gun>().ColourChanging();
         }
-    }*/
+    }
 }

@@ -19,6 +19,7 @@ public class NPCGun : MonoBehaviour
     public float chanceToShoot;
     public bool canShoot;
     public Transform playerLocation;
+    public NPC npc;
     public AudioSource gunSFX;
     private Animator animator;
 
@@ -68,17 +69,17 @@ public class NPCGun : MonoBehaviour
             if (laser != null)
             {
                 animator.Play("Attack");
-                laser.transform.position = transform.position;
+                laser.transform.position = npc.NPCFirePoint.position;
                 if (longLasers.Contains(laser))
                 {
-                    laser.transform.rotation = transform.rotation;
+                    laser.transform.rotation = npc.NPCFirePoint.rotation;
                     laser.GetComponent<Rigidbody>().AddForce(Vector3.forward);
                     laser.SetActive(true);
                     gunSFX.Play();
                 }
                 else
                 {
-                    laser.transform.rotation = transform.rotation;
+                    laser.transform.rotation = npc.NPCFirePoint.rotation;
                     laser.GetComponent<Rigidbody>().AddForce(Vector3.forward);
                     laser.SetActive(true);
                     gunSFX.Play();

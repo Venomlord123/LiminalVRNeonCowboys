@@ -1,7 +1,7 @@
 ﻿using Liminal.SDK.Extensions;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class PlayerBullet : MonoBehaviour
 {
     public Rigidbody rb;
 
@@ -41,6 +41,12 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.GetComponentInParent<Health>() != null)
         {
             other.gameObject.GetComponentInParent<Health>().Damage(1);
+        }
+
+        if (other.gameObject.GetComponent<NPCBulletLong>())
+        {
+            other.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

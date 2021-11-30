@@ -52,6 +52,9 @@ MonoBehaviour:
   gunSFX: {fileID: 6189226273791707347}
   isRight: 0
   isLeft: 0
+  meshRenderers:
+  - {fileID: 1914886275023303156}
+  - {fileID: 5551168210484429284}
 --- !u!82 &6189226273791707347
 AudioSource:
   m_ObjectHideFlags: 0
@@ -368,7 +371,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4905088286470605910}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1

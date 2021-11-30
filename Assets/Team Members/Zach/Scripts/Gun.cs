@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -14,6 +16,8 @@ public class Gun : MonoBehaviour
     public bool isRight;
     public bool isLeft;
     private float nextFire;
+    public List<MeshRenderer> meshRenderers;
+    private Color colour;
 
 
     public void Awake()
@@ -30,6 +34,25 @@ public class Gun : MonoBehaviour
             tempBullet = Instantiate(laser);
             tempBullet.SetActive(false);
             bullets.Add(tempBullet);
+        }
+    }
+
+    public void ColourChanging()
+    {
+        foreach (MeshRenderer meshRenderer in meshRenderers)
+        {
+            colour = meshRenderer.material.GetColor("_EmissionColor");
+            meshRenderer.material.SetColor("_EmissionColor", Color.white);
+            StartCoroutine(ColourChangeTime());
+        }
+    }
+
+    public IEnumerator ColourChangeTime()
+    {
+        yield return new WaitForSeconds(0.5f);
+        foreach (MeshRenderer meshRenderer in meshRenderers)
+        {
+            meshRenderer.material.SetColor("_EmissionColor", colour);
         }
     }
 
@@ -83,5 +106,13 @@ public class Gun : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponentInParent<NPCBullet>())
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 }

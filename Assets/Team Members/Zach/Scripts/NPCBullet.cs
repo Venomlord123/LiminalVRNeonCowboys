@@ -35,6 +35,7 @@ public class NPCBullet : MonoBehaviour
     {
         time = 0;
         rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.Euler(Vector3.zero);
     }

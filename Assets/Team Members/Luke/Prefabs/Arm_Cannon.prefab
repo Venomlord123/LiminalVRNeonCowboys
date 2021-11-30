@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 226406975121729449}
   - component: {fileID: 6805672206363615740}
   - component: {fileID: 5551168210484429284}
+  - component: {fileID: 102831749552024597}
   m_Layer: 0
   m_Name: Updated_Arm_Blaster2_group5_Arm_Blasters
   m_TagString: Untagged
@@ -229,6 +230,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &102831749552024597
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727918255469778057}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 5350727774473516479, guid: c9cbcbe7b80c7fa4b9cf7e4fc030ca64, type: 3}
 --- !u!1 &3913329272872298389
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +290,7 @@ GameObject:
   - component: {fileID: 3003343763804873760}
   - component: {fileID: 3909159917575402882}
   - component: {fileID: 1914886275023303156}
+  - component: {fileID: 5513772417346321236}
   m_Layer: 0
   m_Name: group5_Arm_Blasters_Updated_Arm_Blaster1
   m_TagString: Untagged
@@ -344,6 +360,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5513772417346321236
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905088286470605910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4206082771630198952, guid: c9cbcbe7b80c7fa4b9cf7e4fc030ca64, type: 3}
 --- !u!1001 &844147933176243641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -351,11 +381,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 925657139389063438}
     m_Modifications:
-    - target: {fileID: 4465868992248627756, guid: 8d780eaea147df44a91436597dbadf02,
-        type: 3}
-      propertyPath: m_Name
-      value: Arm_Cannon2
-      objectReference: {fileID: 0}
     - target: {fileID: 838423757549711423, guid: 8d780eaea147df44a91436597dbadf02,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -425,6 +450,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465868992248627756, guid: 8d780eaea147df44a91436597dbadf02,
+        type: 3}
+      propertyPath: m_Name
+      value: Arm_Cannon2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d780eaea147df44a91436597dbadf02, type: 3}

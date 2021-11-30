@@ -11,6 +11,7 @@ public class NPCBulletLong : MonoBehaviour
     //Set this before playing in scene
     public float speed;
     public float time;
+    public float scaleSpeed;
     public float lifeTime;
     public Vector3 originalScale;
     public Vector3 maxScale;
@@ -35,7 +36,7 @@ public class NPCBulletLong : MonoBehaviour
         
         if (tranfromScale.x <= maxScale.x)
         {
-            transform.localScale += new Vector3(1f,0,0);
+            transform.localScale += new Vector3(1f,0,0) * Time.deltaTime * scaleSpeed;
             tranfromScale = transform.localScale;
         }
     }

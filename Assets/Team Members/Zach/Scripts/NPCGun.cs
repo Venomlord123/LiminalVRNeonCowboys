@@ -27,7 +27,7 @@ public class NPCGun : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         SharedInstance = this;
-        playerLocation = FindObjectOfType<VRAvatarHead>().GetComponent<Transform>();
+        playerLocation = FindObjectOfType<Target>().GetComponent<Transform>();
         canShoot = true;
     }
 

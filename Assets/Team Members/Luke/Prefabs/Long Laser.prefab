@@ -108,6 +108,7 @@ MonoBehaviour:
   rb: {fileID: 4548949611426340104}
   speed: 1000
   time: 0
+  scaleSpeed: 2
   lifeTime: 7
   originalScale: {x: 0, y: 0, z: 0}
   maxScale: {x: 10, y: 0, z: 0}

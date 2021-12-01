@@ -17,7 +17,7 @@ public class NPC : MonoBehaviour
     public int xVariance;
     [Tooltip("The amount to offset the NPC's target in the Y value only. This value will apply to both negative and positive variance")]
     public int yVariance;
-    private Vector3 directionToTarget;
+    public Vector3 directionToTarget;
     [Tooltip("The amount of time, in seconds, that the NPC should wait before firing each shot")]
     public float shotDelay;
     private Animator animator;

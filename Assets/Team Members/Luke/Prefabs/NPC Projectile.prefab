@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4858640096158603203}
   - component: {fileID: 5458618169588169433}
   - component: {fileID: 4906415500691967315}
+  - component: {fileID: 5118039972216798}
   m_Layer: 0
   m_Name: NPC Projectile
   m_TagString: Untagged
@@ -66,6 +67,20 @@ MonoBehaviour:
   time: 0
   lifeTime: 7
   damage: 1
+--- !u!136 &5118039972216798
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935576223828402539}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.36
+  m_Height: 4.05
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!64 &1761954972170384517
 MeshCollider:
   m_ObjectHideFlags: 0

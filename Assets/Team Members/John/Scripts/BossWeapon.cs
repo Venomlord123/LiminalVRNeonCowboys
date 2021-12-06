@@ -49,6 +49,7 @@ public class BossWeapon : MonoBehaviour
                     laserToShoot.GetComponent<Rigidbody>().AddForce(_Npc.directionToTarget);
                     laserToShoot.SetActive(true);
                     gunSFX.Play();
+                    GetComponentInChildren<Animator>().Play("Attack2");
                 }
             }
             Debug.Log("Restarting");

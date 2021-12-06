@@ -1,5 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &287746636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 287746637}
+  - component: {fileID: 287746638}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &287746637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287746636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.261, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3752074739082034909}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &287746638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287746636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e5339b0ad2924479137c146131779a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3752074739082034880
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,8 +360,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.21921134
+  m_Center: {x: 0, y: -0.119211316, z: 0}
 --- !u!1 &3752074739082034889
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +486,7 @@ Transform:
   - {fileID: 3752074739082034923}
   - {fileID: 3752074739082034898}
   - {fileID: 3752074739082034908}
+  - {fileID: 287746637}
   m_Father: {fileID: 3752074739082034901}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -971,7 +1015,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1257,11 +1301,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8864903139404628950, guid: f219b3e73e1438040959c0fbe197819e,
         type: 3}
-      propertyPath: isLeft
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864903139404628950, guid: f219b3e73e1438040959c0fbe197819e,
-        type: 3}
       propertyPath: amountToPool
       value: 35
       objectReference: {fileID: 0}
@@ -1269,6 +1308,16 @@ PrefabInstance:
         type: 3}
       propertyPath: fireRate
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864903139404628950, guid: f219b3e73e1438040959c0fbe197819e,
+        type: 3}
+      propertyPath: isLeft
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513772417346321236, guid: f219b3e73e1438040959c0fbe197819e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f219b3e73e1438040959c0fbe197819e, type: 3}
@@ -1347,11 +1396,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8864903139404628950, guid: f219b3e73e1438040959c0fbe197819e,
         type: 3}
-      propertyPath: isRight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8864903139404628950, guid: f219b3e73e1438040959c0fbe197819e,
-        type: 3}
       propertyPath: amountToPool
       value: 35
       objectReference: {fileID: 0}
@@ -1359,6 +1403,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fireRate
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864903139404628950, guid: f219b3e73e1438040959c0fbe197819e,
+        type: 3}
+      propertyPath: isRight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f219b3e73e1438040959c0fbe197819e, type: 3}

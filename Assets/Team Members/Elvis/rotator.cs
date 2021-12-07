@@ -5,7 +5,7 @@ using UnityEngine;
 public class rotator : MonoBehaviour
 {
 
-    public float rotationSpeed;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,6 @@ public class rotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, rotationSpeed, 0) * Time.deltaTime);
+        transform.Rotate(new Vector3(15, 0, 0) * Time.deltaTime);
     }
 }

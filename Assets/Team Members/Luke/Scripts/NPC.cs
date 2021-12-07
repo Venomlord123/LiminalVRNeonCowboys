@@ -9,7 +9,7 @@ public class NPC : MonoBehaviour
 {
     [Tooltip("The position from which the NPC is able to fire a bullet")]
     public Transform NPCFirePoint;
-    private Transform playerTarget;
+    public Transform playerTarget;
     private Vector3 shotTarget;
     [Tooltip("The percentage chance for the NPC to miss the player")]
     public float chanceToHit;
@@ -25,7 +25,7 @@ public class NPC : MonoBehaviour
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        playerTarget = FindObjectOfType<VRAvatar>().transform;
+        playerTarget = FindObjectOfType<VRAvatar>().GetComponentInChildren<Target>().transform;
     }
 
     void Update()

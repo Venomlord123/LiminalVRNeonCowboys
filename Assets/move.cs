@@ -25,7 +25,7 @@ public class move : MonoBehaviour
     // function for moving  cubes on grid
     void MoveGameObject()
     {
-        if (transform.position == NextPos.position)
+        if(transform.position == NextPos.position)
         {
             NextPosIndex++;
             if (NextPosIndex >= Positions.Length)

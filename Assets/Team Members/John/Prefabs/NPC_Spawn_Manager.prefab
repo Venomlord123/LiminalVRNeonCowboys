@@ -79,9 +79,9 @@ MonoBehaviour:
   Boss: {fileID: 5676701951280725476, guid: d39d5f034cd562b4d85b6e6c5360fe4b, type: 3}
   waveCount: 1
   bossWave: 4
-  numberToSpawn: 1
-  extraEnemies: 0
+  numberToSpawn: 5
+  extraEnemies: 2
   spawnDelay: 0.5
-  waveDelay: 2
-  bossDelay: 5
+  waveDelay: 5
+  bossDelay: 10
   remainingEnemies: []

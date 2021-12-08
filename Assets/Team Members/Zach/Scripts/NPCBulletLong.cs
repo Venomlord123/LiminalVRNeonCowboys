@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Liminal.SDK.VR.Avatars;
 using UnityEngine;
 
 public class NPCBulletLong : MonoBehaviour
@@ -58,11 +59,12 @@ public class NPCBulletLong : MonoBehaviour
         tranfromScale = originalScale;
     }
 
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.HasComponent<VRAvatar>())
+        if (other.gameObject.GetComponentInParent<VRAvatar>())
         {
-            other.GetComponent<Health>().Damage(1);
+            gameObject.SetActive(false);
+            other.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>().Shot();
         }
-    }*/
+    }
 }

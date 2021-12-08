@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
         if (currentHealth == 0)
         {
             manager.Die(gameObject);
+            gameObject.GetComponent<NPC>().NPCHit();
         }
     }
 

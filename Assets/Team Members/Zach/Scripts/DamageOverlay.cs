@@ -35,6 +35,7 @@ public class DamageOverlay : MonoBehaviour
 
     public void Shot()
     {
+        GetComponentInParent<AudioSource>().Play();
         image.canvasRenderer.SetAlpha(.25f);
         StartCoroutine(Cooldown());
     }

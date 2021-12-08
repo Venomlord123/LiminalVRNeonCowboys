@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 8309302225159428492}
   - component: {fileID: 2599595270515521915}
   - component: {fileID: 4431303589928205629}
+  - component: {fileID: 487119127894368279}
   m_Layer: 0
   m_Name: Neon_NPC
   m_TagString: NPC
@@ -142,7 +143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 3
   currentHealth: 0
-  manager: {fileID: 1374625281616966750, guid: 28d1c1927d534f34b9f715b762d0cc95, type: 3}
 --- !u!114 &4431303589928205629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +159,25 @@ MonoBehaviour:
   chanceToHit: 80
   xVariance: 2
   yVariance: 1
+  shotDelay: 0
+--- !u!114 &487119127894368279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4975293970594360223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f60a526b6e4a344a26fb46d25ade01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 646905162304533811}
+  laserType1: {fileID: 3137938389113292617, guid: 638282e47b3d00547a35d787e5dfb09b,
+    type: 3}
+  laserType2: {fileID: 5806111293780881903, guid: bdb9f3a0e7c9dcc4db619bc525f8e41b,
+    type: 3}
+  chanceForLaser1: 23
   shotDelay: 0
 --- !u!1 &7417151389026225889
 GameObject:

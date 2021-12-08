@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour
     //Variables
     public float fireRate;
     public AudioSource gunSFX;
+    public AudioSource deflectionSFX;
     public bool isRight;
     public bool isLeft;
     private float nextFire;
@@ -41,6 +42,7 @@ public class Gun : MonoBehaviour
     {
         foreach (MeshRenderer meshRenderer in meshRenderers)
         {
+            deflectionSFX.Play();
             colour = meshRenderer.material.GetColor("_EmissionColor");
             meshRenderer.material.SetColor("_EmissionColor", Color.white);
             StartCoroutine(ColourChangeTime());

@@ -21,6 +21,7 @@ public class NPC : MonoBehaviour
     [Tooltip("The amount of time, in seconds, that the NPC should wait before firing each shot")]
     public float shotDelay;
     private Animator animator;
+    public AudioSource hitsfx;
 
     private void Start()
     {
@@ -60,5 +61,10 @@ public class NPC : MonoBehaviour
     public void LaserChoice()
     {
         //random range set to be nextBullet
+    }
+
+    public void NPCHit()
+    {
+        hitsfx.Play();
     }
 }

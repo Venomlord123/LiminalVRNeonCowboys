@@ -638,6 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCFirePoint: {fileID: 9091567207942183900}
+  playerTarget: {fileID: 0}
   chanceToHit: 95
   xVariance: 1
   yVariance: 1
@@ -655,8 +656,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a16b5327a0fc849a623921116596a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 5
-  currentHealth: 5
+  startingHealth: 15
+  currentHealth: 15
 --- !u!54 &8664858675685617227
 Rigidbody:
   m_ObjectHideFlags: 0

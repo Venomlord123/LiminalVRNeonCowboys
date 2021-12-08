@@ -48,5 +48,11 @@ public class PlayerBullet : MonoBehaviour
             other.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
+
+        if (other.gameObject.GetComponent<MissileBehaviour>())
+        {
+            other.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
     }
 }

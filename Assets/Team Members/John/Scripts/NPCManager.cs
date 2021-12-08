@@ -123,6 +123,11 @@ public class NPCManager : MonoBehaviour
         Debug.Log("It's time for a boss battle!");
         yield return new WaitForSeconds(bossDelay);
         Instantiate(Boss, bossLocation.position, bossLocation.rotation);
+        var locations = FindObjectsOfType<BossPosition>();
+        foreach (var pos in locations)
+        {
+            pos.gameObject.GetComponent<BossPosition>().AddPoint();
+        }
     }
 
     public void EndGame()

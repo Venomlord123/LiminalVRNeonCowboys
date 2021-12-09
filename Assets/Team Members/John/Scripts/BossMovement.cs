@@ -16,7 +16,7 @@ public class BossMovement : MonoBehaviour
     public bool atCenter;
     public float distance;
 
-    private void Awake()
+    private void Start()
     {
         center.position = transform.position;
         atCenter = true;
@@ -25,7 +25,7 @@ public class BossMovement : MonoBehaviour
         
         StartCoroutine(Moving());
     }
-    
+
     public static void AddPoint(Transform transform)
     {
         positions.Add(transform);

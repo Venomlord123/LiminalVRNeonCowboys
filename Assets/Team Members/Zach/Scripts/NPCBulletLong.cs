@@ -20,8 +20,7 @@ public class NPCBulletLong : MonoBehaviour
     public int damage;
     public Vector3 tranfromScale;
 
-
-    public void Awake()
+    private void Start()
     {
         originalScale = transform.localScale;
         tranfromScale = transform.localScale;

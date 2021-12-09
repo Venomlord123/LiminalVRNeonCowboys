@@ -11,20 +11,19 @@ public class Health : MonoBehaviour
     public int currentHealth;
     private NPCManager manager;
 
-    private void Awake()
+    private void Start()
     {
         currentHealth = startingHealth;
         manager = FindObjectOfType<NPCManager>();
     }
-    
+
     public void Damage(int damage)
     {
         currentHealth = currentHealth - damage;
         
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             manager.Die(gameObject);
-            gameObject.GetComponent<NPC>().NPCHit();
         }
     }
 

@@ -62,9 +62,4 @@ public class NPC : MonoBehaviour
     {
         //random range set to be nextBullet
     }
-
-    public void NPCHit()
-    {
-        hitsfx.Play();
-    }
 }

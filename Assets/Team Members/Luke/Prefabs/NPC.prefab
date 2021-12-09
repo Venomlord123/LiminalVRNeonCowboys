@@ -644,6 +644,7 @@ MonoBehaviour:
   yVariance: 1
   directionToTarget: {x: 0, y: 0, z: 0}
   shotDelay: 0.5
+  hitsfx: {fileID: 0}
 --- !u!114 &-9090130398695657554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,7 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 15
-  currentHealth: 15
+  currentHealth: 0
 --- !u!54 &8664858675685617227
 Rigidbody:
   m_ObjectHideFlags: 0

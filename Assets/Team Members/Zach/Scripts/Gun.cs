@@ -20,14 +20,10 @@ public class Gun : MonoBehaviour
     public List<MeshRenderer> meshRenderers;
     private Color colour;
 
-
-    public void Awake()
-    {
-        SharedInstance = this;
-    }
-
     public void Start()
     {
+        SharedInstance = this;
+        
         bullets = new List<GameObject>();
         GameObject tempBullet;
         for (int i = 0; i < amountToPool; i++)

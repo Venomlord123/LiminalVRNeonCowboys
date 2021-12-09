@@ -18,7 +18,10 @@ public class NPCManager : MonoBehaviour
     public GameObject NPC;
     [Tooltip("The boss enemy that will spawn once a boss round is reached")]
     public GameObject Boss;
-    
+
+    public AudioSource npcSpawnSFX;
+    public AudioSource npcDeathSFX;
+
     //VARIABLES
     //private variable for setting location of next spawn
     private int nextSpawn;
@@ -74,6 +77,7 @@ public class NPCManager : MonoBehaviour
                 Debug.Log($"Missing spawn point for items at {nextSpawn}");
                 yield return null;
             }
+            npcSpawnSFX.Play();
             GameObject thisNPC = Instantiate(NPC, spawnPoint.position, spawnPoint.rotation);
             remainingEnemies.Add(thisNPC);
             availableSpawns.RemoveAt(nextSpawn);
@@ -85,15 +89,20 @@ public class NPCManager : MonoBehaviour
 
     public void Die(GameObject thisEnemy)
     {
+        npcDeathSFX.Play();
+        remainingEnemies.Remove(thisEnemy);
+        
         if (thisEnemy.CompareTag("Boss"))
         {
-            Destroy(thisEnemy);
+            // Destroy(thisEnemy);
+            
+            Animator ani = thisEnemy.GetComponent<Animator>();
+            ani.SetBool("isDead", true);
             EndGame();
             return;
         }
-        remainingEnemies.Remove(thisEnemy);
         Destroy(thisEnemy);
-        
+
         if (remainingEnemies.Count == 0 && waveCount == bossWave)
         {
             StartCoroutine(BossRound());
@@ -104,8 +113,6 @@ public class NPCManager : MonoBehaviour
         {
             StartCoroutine(NextWave());
         }
-
-        
     }
 
     public IEnumerator NextWave()
@@ -122,6 +129,7 @@ public class NPCManager : MonoBehaviour
     {
         Debug.Log("It's time for a boss battle!");
         yield return new WaitForSeconds(bossDelay);
+        npcSpawnSFX.Play();
         Instantiate(Boss, bossLocation.position, bossLocation.rotation);
         var locations = FindObjectsOfType<BossPosition>();
         foreach (var pos in locations)

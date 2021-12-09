@@ -10,9 +10,7 @@ public class PlayerBullet : MonoBehaviour
     public float speed;
     public float time;
     public float lifeTime;
-
     public int damage;
-
 
     private void Update()
     {
@@ -40,7 +38,7 @@ public class PlayerBullet : MonoBehaviour
     {
         if (other.gameObject.GetComponentInParent<Health>() != null)
         {
-            other.gameObject.GetComponentInParent<Health>().Damage(1);
+            other.gameObject.GetComponentInParent<Health>().Damage(damage);
         }
 
         if (other.gameObject.GetComponent<NPCBulletLong>())

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ public class BossWeapon : MonoBehaviour
     public AudioSource gunSFX;
     public float chanceToShoot;
 
-    private void Awake()
+    private void Start()
     {
         Instance = this;
         GameObject tempBossLaser;

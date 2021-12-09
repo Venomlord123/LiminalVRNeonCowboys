@@ -23,17 +23,13 @@ public class NPCGun : MonoBehaviour
     public AudioSource gunSFX;
     private Animator animator;
 
-
-    public void Awake()
+    public void Start()
     {
         animator = GetComponentInChildren<Animator>();
         SharedInstance = this;
         playerLocation = FindObjectOfType<Target>().GetComponent<Transform>();
         canShoot = true;
-    }
-
-    public void Start()
-    {
+        
         straightLasers = new List<GameObject>();
         GameObject tempStraightLaser;
         for (int i = 0; i < amountToPool; i++)

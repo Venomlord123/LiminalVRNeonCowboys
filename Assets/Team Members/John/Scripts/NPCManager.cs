@@ -21,6 +21,7 @@ public class NPCManager : MonoBehaviour
 
     public AudioSource npcSpawnSFX;
     public AudioSource npcDeathSFX;
+    private Animator bossAni;
 
     //VARIABLES
     //private variable for setting location of next spawn
@@ -41,7 +42,7 @@ public class NPCManager : MonoBehaviour
     public float bossDelay;
     [Tooltip("A list of all the enemies that were spawned in the current wave. Kill each enemy in this list to progress to the next wave")]
     public List<GameObject> remainingEnemies;
-    
+
     public static void AddSpawnPoint(Transform transform)
     {
         availableSpawns.Add(transform);
@@ -95,14 +96,18 @@ public class NPCManager : MonoBehaviour
         if (thisEnemy.CompareTag("Boss"))
         {
             // Destroy(thisEnemy);
-            
-            Animator ani = thisEnemy.GetComponent<Animator>();
-            ani.SetBool("isDead", true);
+            //TODO Why does this not work properly???!
+            bossAni.SetBool("isDead", true);
+            bossAni.Play("Death");
             EndGame();
             return;
         }
-        Destroy(thisEnemy);
 
+        if (thisEnemy.CompareTag("NPC"))
+        {
+            Destroy(thisEnemy);
+        }
+        
         if (remainingEnemies.Count == 0 && waveCount == bossWave)
         {
             StartCoroutine(BossRound());
@@ -136,6 +141,7 @@ public class NPCManager : MonoBehaviour
         {
             pos.gameObject.GetComponent<BossPosition>().AddPoint();
         }
+        bossAni = Boss.GetComponent<Animator>();
     }
 
     public void EndGame()

@@ -53,11 +53,18 @@ public class MissileBehaviour : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponentInParent<Health>() != null)
+        if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<Gun>())
         {
-            other.gameObject.GetComponentInParent<Health>().Damage(damageAmount);
+            gameObject.SetActive(false);
+            other.gameObject.GetComponentInParent<VRAvatar>().gameObject.GetComponentInChildren<Gun>().ColourChanging();
+        }
+
+        else if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>())
+        {
+            gameObject.SetActive(false);
+            other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>().Shot();
         }
     }
 }

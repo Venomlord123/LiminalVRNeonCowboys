@@ -105,6 +105,10 @@ public class NPCManager : MonoBehaviour
 
         if (thisEnemy.CompareTag("NPC"))
         {
+            thisEnemy.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            thisEnemy.GetComponent<NPC>().enabled = false;
+            thisEnemy.GetComponent<NPCGun>().enabled = false;
+            thisEnemy.GetComponentInChildren<Animator>().enabled = false;
             Destroy(thisEnemy);
         }
         

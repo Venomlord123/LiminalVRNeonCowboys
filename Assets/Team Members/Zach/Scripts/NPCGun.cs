@@ -34,7 +34,7 @@ public class NPCGun : MonoBehaviour
         GameObject tempStraightLaser;
         for (int i = 0; i < amountToPool; i++)
         {
-            tempStraightLaser = Instantiate(straightLaser);
+            tempStraightLaser = Instantiate(straightLaser,this.transform);
             tempStraightLaser.SetActive(false);
             straightLasers.Add(tempStraightLaser);
         }
@@ -43,7 +43,7 @@ public class NPCGun : MonoBehaviour
         GameObject tempLongLaser;
         for (int i = 0; i < amountToPool; i++)
         {
-            tempLongLaser = Instantiate(longLaser);
+            tempLongLaser = Instantiate(longLaser,this.transform);
             tempLongLaser.SetActive(false);
             longLasers.Add(tempLongLaser);
         }
@@ -86,8 +86,8 @@ public class NPCGun : MonoBehaviour
             canShoot = true;
         }
     }
-
-
+    
+    
     public GameObject GetPooledObject()
     {
         for (int i = 0; i < amountToPool; i++)

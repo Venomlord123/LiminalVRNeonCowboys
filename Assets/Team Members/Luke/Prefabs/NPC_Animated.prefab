@@ -201,6 +201,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 15
   currentHealth: 15
+  meshRenderers:
+  - {fileID: 696416629603087722}
+  - {fileID: 1494931882891615410}
+  - {fileID: 6548460127164629065}
+  - {fileID: 7188592611401356443}
+  - {fileID: 8584465991875090484}
+  - {fileID: 2816020444828705247}
+  colour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &7429038636809805964
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Liminal.Core.Fader;
+using Liminal.SDK.Core;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
@@ -18,6 +21,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(FirstWave());
     }
 
+    private void Update()
+    {
+        if (NpcManager.gameEnded)
+        {
+            StartCoroutine(FadeOut());
+        }
+    }
+
     public IEnumerator FirstWave()
     {
         yield return new WaitForSeconds(startDelay);
@@ -29,6 +40,14 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(introTextTime);
         introText.SetActive(false);
+    }
+
+    public IEnumerator FadeOut()
+    {
+        var fade = ScreenFader.Instance;
+        fade.FadeToBlack(2f);
+        yield return new WaitForSeconds(2f);
+        ExperienceApp.End();
     }
 
 }

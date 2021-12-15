@@ -16,6 +16,7 @@ public class MissileLauncher : MonoBehaviour
    public int randomPoint;
    public float shotDelay;
    public AudioSource sfx;
+   public bool isLauching;
 
    public Vector3 worldSpace;
 
@@ -47,7 +48,7 @@ public class MissileLauncher : MonoBehaviour
 
    public IEnumerator Lauching()
    {
-      while (true)
+      while (isLauching)
       {
          Debug.Log("Repeating Rocket Launch");
          randomPoint = Random.Range(0, misslePosition.Count);

@@ -6315,7 +6315,7 @@ MonoBehaviour:
     rgba: 4278233640
   m_fontColor: {r: 0.16056341, g: 0.6698113, b: 0, a: 1}
   m_enableVertexGradient: 0
-  m_colorMode: 3
+  m_colorMode: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
@@ -7011,6 +7011,7 @@ MonoBehaviour:
   Boss: {fileID: 8393344148703940154, guid: 5f747d67a4c23fc4db4293bbb14b9ada, type: 3}
   npcSpawnSFX: {fileID: 874182091}
   npcDeathSFX: {fileID: 874182090}
+  bossAni: {fileID: 0}
   waveCount: 1
   bossWave: 3
   numberToSpawn: 2
@@ -7019,6 +7020,7 @@ MonoBehaviour:
   waveDelay: 3
   bossDelay: 2
   remainingEnemies: []
+  gameEnded: 0
 --- !u!82 &874182090
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9769,7 +9771,7 @@ PrefabInstance:
     - target: {fileID: 2137473485039940463, guid: 657d9fde17287f941b35bc87017103ea,
         type: 3}
       propertyPath: startDelay
-      value: 17
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2137473485039940463, guid: 657d9fde17287f941b35bc87017103ea,
         type: 3}
@@ -9779,7 +9781,7 @@ PrefabInstance:
     - target: {fileID: 2137473485039940463, guid: 657d9fde17287f941b35bc87017103ea,
         type: 3}
       propertyPath: introTextTime
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 657d9fde17287f941b35bc87017103ea, type: 3}

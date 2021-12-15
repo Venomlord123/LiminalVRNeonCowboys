@@ -55,16 +55,13 @@ public class MissileBehaviour : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<Gun>())
+        if (other.gameObject.name == "CenterEye")
         {
-            gameObject.SetActive(false);
-            other.gameObject.GetComponentInParent<VRAvatar>().gameObject.GetComponentInChildren<Gun>().ColourChanging();
-        }
-
-        else if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>())
-        {
-            gameObject.SetActive(false);
-            other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>().Shot();
+            if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>())
+            {
+                gameObject.SetActive(false);
+                other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>().Shot();
+            }
         }
     }
 }

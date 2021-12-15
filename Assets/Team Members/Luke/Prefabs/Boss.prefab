@@ -257,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8359285990003933413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.16, z: 5}
+  m_LocalPosition: {x: 0, y: 9, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4643248820580347200}
@@ -355,14 +355,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9bc2749e0060d43b5395fefa90ad41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCFirePoint: {fileID: 5641474823791015495}
+  NPCFirePoint: {fileID: 6189019448568734192}
   playerTarget: {fileID: 0}
   chanceToHit: 95
   xVariance: 1
   yVariance: 1
   directionToTarget: {x: 0, y: 0, z: 0}
   shotDelay: 0.5
-  hitsfx: {fileID: 0}
+  npcDeath: {fileID: 0}
+  npcDeathTime: 0
 --- !u!114 &2853610443603048769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +381,7 @@ MonoBehaviour:
     type: 3}
   laserToShoot: {fileID: 0}
   poolAmount: 15
-  firePoint: {fileID: 5641474823791015495}
+  firePoint: {fileID: 6189019448568734192}
   _Npc: {fileID: 4251737435380864486}
   shotDelay: 2
   gunSFX: {fileID: 6943209012922938951}
@@ -1089,12 +1090,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6f390666c002bcb4a86fa156be567875, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44610672ba15cba4e88c0d906eca1a6d, type: 3}
---- !u!1 &2850747419335998700 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9111962883125049612, guid: 44610672ba15cba4e88c0d906eca1a6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 6484007379210094048}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3391457549703326247 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8568998755497832391, guid: 44610672ba15cba4e88c0d906eca1a6d,
@@ -1119,9 +1114,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6484007379210094048}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5641474823791015495 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1707243787577406375, guid: 44610672ba15cba4e88c0d906eca1a6d,
+--- !u!1 &2850747419335998700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9111962883125049612, guid: 44610672ba15cba4e88c0d906eca1a6d,
     type: 3}
   m_PrefabInstance: {fileID: 6484007379210094048}
   m_PrefabAsset: {fileID: 0}

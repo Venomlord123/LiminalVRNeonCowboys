@@ -113,7 +113,8 @@ public class NPCManager : MonoBehaviour
             thisEnemy.GetComponent<NPC>().enabled = false;
             thisEnemy.GetComponent<NPCGun>().enabled = false;
             thisEnemy.GetComponentInChildren<Animator>().enabled = false;
-            Destroy(thisEnemy);
+            thisEnemy.GetComponent<NPC>().npcDeath.Play();
+            thisEnemy.GetComponent<NPC>().CalledDeathTimer();
         }
         
         if (remainingEnemies.Count == 0 && waveCount == bossWave)

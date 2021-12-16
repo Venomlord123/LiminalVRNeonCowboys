@@ -8,6 +8,7 @@ using Valve.VR.InteractionSystem;
 
 public class GameManager : MonoBehaviour
 {
+    public GunHolder gunHolder;
     public NPCManager NpcManager;
     public SoundManager soundManager;
     public float startDelay;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator IntroText()
     {
         yield return new WaitForSeconds(introTextTime);
+        gunHolder.EnableGuns();
         introText.SetActive(false);
     }
 

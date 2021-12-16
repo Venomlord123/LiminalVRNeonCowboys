@@ -10181,6 +10181,11 @@ PrefabInstance:
       propertyPath: introTextTime
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 2137473485039940463, guid: 657d9fde17287f941b35bc87017103ea,
+        type: 3}
+      propertyPath: gunHolder
+      value: 
+      objectReference: {fileID: 1260187851}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 657d9fde17287f941b35bc87017103ea, type: 3}
 --- !u!4 &1117534850 stripped
@@ -19191,6 +19196,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8070542712601297584, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070542712601297584, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_TagString
+      value: Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043195686070345160, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070542712495749325, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070542712495749325, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_TagString
+      value: Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043195686215722933, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3752074739082034901, guid: 928c63470929a2c48886e3c3fd502297,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19253,26 +19288,6 @@ PrefabInstance:
     - target: {fileID: 1213440934, guid: 928c63470929a2c48886e3c3fd502297, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070542712601297584, guid: 928c63470929a2c48886e3c3fd502297,
-        type: 3}
-      propertyPath: m_Name
-      value: Cannon2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070542712601297584, guid: 928c63470929a2c48886e3c3fd502297,
-        type: 3}
-      propertyPath: m_TagString
-      value: Left
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070542712495749325, guid: 928c63470929a2c48886e3c3fd502297,
-        type: 3}
-      propertyPath: m_Name
-      value: Cannon1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070542712495749325, guid: 928c63470929a2c48886e3c3fd502297,
-        type: 3}
-      propertyPath: m_TagString
-      value: Right
       objectReference: {fileID: 0}
     - target: {fileID: 2587529534871953426, guid: 928c63470929a2c48886e3c3fd502297,
         type: 3}

@@ -8,6 +8,8 @@ TagManager:
   - NPC
   - Right
   - Left
+  - Missile
+  - BossProjectile
   layers:
   - Default
   - TransparentFX

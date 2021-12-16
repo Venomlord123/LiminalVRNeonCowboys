@@ -12,6 +12,7 @@ public class NPCBulletPool : MonoBehaviour
 
     void Start()
     {
+        straightLasers = new List<GameObject>();
         GameObject tempStraight;
         for (int i = 0; i < amountToPool; i++)
         {
@@ -19,7 +20,7 @@ public class NPCBulletPool : MonoBehaviour
             tempStraight.SetActive(false);
             straightLasers.Add(tempStraight);
         }
-
+        longLasers = new List<GameObject>();
         GameObject tempLong;
         for (int i = 0; i < amountToPool; i++)
         {
@@ -29,7 +30,7 @@ public class NPCBulletPool : MonoBehaviour
         }
     }
     
-    public GameObject GetPooledObject(int chanceToShoot)
+    public GameObject GetPooledObject(float chanceToShoot)
     {
         for (int i = 0; i < amountToPool; i++)
         {

@@ -6,10 +6,6 @@ public class NPCGun : MonoBehaviour
 {
     //Object Pooling Variables
     public static NPCBulletPool SharedInstance;
-    public List<GameObject> straightLasers;
-    public List<GameObject> longLasers;
-    public GameObject straightLaser;
-    public GameObject longLaser;
     public int amountToPool;
 
 
@@ -30,24 +26,6 @@ public class NPCGun : MonoBehaviour
         playerLocation = FindObjectOfType<Target>().GetComponent<Transform>();
         canShoot = true;
         
-        straightLasers = new List<GameObject>();
-        GameObject tempStraightLaser;
-        for (int i = 0; i < amountToPool; i++)
-        {
-            tempStraightLaser = Instantiate(straightLaser,this.transform);
-            tempStraightLaser.SetActive(false);
-            straightLasers.Add(tempStraightLaser);
-        }
-
-        longLasers = new List<GameObject>();
-        GameObject tempLongLaser;
-        for (int i = 0; i < amountToPool; i++)
-        {
-            tempLongLaser = Instantiate(longLaser,this.transform);
-            tempLongLaser.SetActive(false);
-            longLasers.Add(tempLongLaser);
-        }
-
         timeTillShoot = shootTime;
     }
 
@@ -61,12 +39,12 @@ public class NPCGun : MonoBehaviour
         if (timeTillShoot <= 0 && canShoot)
         {
             canShoot = false;
-            GameObject laser = SharedInstance.GetPooledObject(amountToPool);
+            GameObject laser = SharedInstance.GetPooledObject(chanceToShoot);
             if (laser != null)
             {
                 animator.Play("Attack");
                 laser.transform.position = npc.NPCFirePoint.position;
-                if (longLasers.Contains(laser))
+                if (SharedInstance.longLasers.Contains(laser))
                 {
                     laser.transform.rotation = npc.NPCFirePoint.rotation;
                     laser.GetComponent<Rigidbody>().AddForce(Vector3.forward);
@@ -86,29 +64,5 @@ public class NPCGun : MonoBehaviour
             canShoot = true;
         }
     }
-    
-    
-    public GameObject GetPooledObject()
-    {
-        for (int i = 0; i < amountToPool; i++)
-        {
-            float chance = Random.Range(0f, 1f);
-            if (chance >= chanceToShoot)
-            {
-                if (!straightLasers[i].activeInHierarchy)
-                {
-                    return straightLasers[i];
-                }
-            }
-            else
-            {
-                if (!longLasers[i].activeInHierarchy)
-                {
-                    return longLasers[i];
-                }
-            }
-        }
-
-        return null;
-    }
+  
 }

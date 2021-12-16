@@ -88,8 +88,8 @@ public class NPCManager : MonoBehaviour
                 yield return null;
             }
             npcSpawnSFX.Play();
-            GameObject thisNPC = Instantiate(NPC, spawnPoint.position, spawnPoint.rotation);
-            remainingEnemies.Add(thisNPC);
+            var thisNpc = Instantiate(NPC, spawnPoint.position, spawnPoint.rotation);
+            remainingEnemies.Add(thisNpc);
             availableSpawns.RemoveAt(nextSpawn);
             yield return new WaitForSeconds(spawnDelay);
         }

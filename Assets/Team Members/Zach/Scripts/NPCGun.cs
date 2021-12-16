@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCGun : MonoBehaviour
 {
     //Object Pooling Variables
-    public static NPCGun SharedInstance;
+    public static NPCBulletPool SharedInstance;
     public List<GameObject> straightLasers;
     public List<GameObject> longLasers;
     public GameObject straightLaser;
@@ -26,7 +26,7 @@ public class NPCGun : MonoBehaviour
     public void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        SharedInstance = this;
+        SharedInstance = FindObjectOfType<NPCBulletPool>();
         playerLocation = FindObjectOfType<Target>().GetComponent<Transform>();
         canShoot = true;
         
@@ -61,7 +61,7 @@ public class NPCGun : MonoBehaviour
         if (timeTillShoot <= 0 && canShoot)
         {
             canShoot = false;
-            GameObject laser = SharedInstance.GetPooledObject();
+            GameObject laser = SharedInstance.GetPooledObject(amountToPool);
             if (laser != null)
             {
                 animator.Play("Attack");

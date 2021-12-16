@@ -21,7 +21,7 @@ public class NPCManager : MonoBehaviour
 
     public AudioSource npcSpawnSFX;
     public AudioSource npcDeathSFX;
-    private Animator bossAni;
+    public Animator bossAni;
 
     //VARIABLES
     //private variable for setting location of next spawn
@@ -42,6 +42,8 @@ public class NPCManager : MonoBehaviour
     public float bossDelay;
     [Tooltip("A list of all the enemies that were spawned in the current wave. Kill each enemy in this list to progress to the next wave")]
     public List<GameObject> remainingEnemies;
+    [HideInInspector]
+    public bool gameEnded;
 
     public static void AddSpawnPoint(Transform transform)
     {
@@ -99,13 +101,20 @@ public class NPCManager : MonoBehaviour
             //TODO Why does this not work properly???!
             bossAni.SetBool("isDead", true);
             bossAni.Play("Death");
+            thisEnemy.GetComponent<BossWeapon>().shooting = false;
+            thisEnemy.GetComponent<MissileLauncher>().isLauching = false;
             EndGame();
             return;
         }
 
         if (thisEnemy.CompareTag("NPC"))
         {
-            Destroy(thisEnemy);
+            thisEnemy.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            thisEnemy.GetComponent<NPC>().enabled = false;
+            thisEnemy.GetComponent<NPCGun>().enabled = false;
+            thisEnemy.GetComponentInChildren<Animator>().enabled = false;
+            thisEnemy.GetComponent<NPC>().npcDeath.Play();
+            thisEnemy.GetComponent<NPC>().CalledDeathTimer();
         }
         
         if (remainingEnemies.Count == 0 && waveCount == bossWave)
@@ -135,18 +144,19 @@ public class NPCManager : MonoBehaviour
         Debug.Log("It's time for a boss battle!");
         yield return new WaitForSeconds(bossDelay);
         npcSpawnSFX.Play();
-        Instantiate(Boss, bossLocation.position, bossLocation.rotation);
+        GameObject boss = Instantiate(Boss, bossLocation.position, bossLocation.rotation);
         var locations = FindObjectsOfType<BossPosition>();
         foreach (var pos in locations)
         {
             pos.gameObject.GetComponent<BossPosition>().AddPoint();
         }
-        bossAni = Boss.GetComponent<Animator>();
+        bossAni = boss.GetComponentInChildren<Animator>();
     }
 
     public void EndGame()
     {
         Debug.Log("Congrats, you beat the boss!");
+        gameEnded = true;
     }
 
     public void KillAllNPC()

@@ -43,16 +43,19 @@ public class NPCBullet : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<Gun>())
+        if (other.gameObject.name == "CenterEye")
         {
-            gameObject.SetActive(false);
-            other.gameObject.GetComponentInParent<VRAvatar>().gameObject.GetComponentInChildren<Gun>().ColourChanging();
-        }
+            if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<Gun>())
+            {
+                gameObject.SetActive(false);
+                other.gameObject.GetComponentInParent<VRAvatar>().gameObject.GetComponentInChildren<Gun>().ColourChanging();
+            }
 
-        else if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>())
-        {
-            gameObject.SetActive(false);
-            other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>().Shot();
+            else if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>())
+            {
+                gameObject.SetActive(false);
+                other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>().Shot();
+            }
         }
     }
 }

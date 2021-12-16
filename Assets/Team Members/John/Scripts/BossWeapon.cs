@@ -19,6 +19,7 @@ public class BossWeapon : MonoBehaviour
     public int shotDelay;
     public AudioSource gunSFX;
     public float chanceToShoot;
+    public bool shooting;
 
     private void Start()
     {
@@ -37,7 +38,7 @@ public class BossWeapon : MonoBehaviour
 
     private IEnumerator Shooting()
     {
-        while (true)
+        while (shooting)
         {
             laserToShoot = null;
             laserToShoot = Instance.GetPooledObject();

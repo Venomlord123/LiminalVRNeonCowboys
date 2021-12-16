@@ -16,15 +16,21 @@ public class MissileLauncher : MonoBehaviour
    public int randomPoint;
    public float shotDelay;
    public AudioSource sfx;
+   public bool isLauching;
 
    public Vector3 worldSpace;
 
-   private void Awake()
+   private void Start()
    {
       StartCoroutine(Lauching());
-      
-      //Launch();
    }
+
+   // private void Awake()
+   // {
+   //    
+   //    
+   //    //Launch();
+   // }
    /// <summary>
    /// This is test code that was only used to test a single missile launch. Functional code begins at Line 42.
    /// </summary>
@@ -42,7 +48,7 @@ public class MissileLauncher : MonoBehaviour
 
    public IEnumerator Lauching()
    {
-      while (true)
+      while (isLauching)
       {
          Debug.Log("Repeating Rocket Launch");
          randomPoint = Random.Range(0, misslePosition.Count);

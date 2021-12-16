@@ -53,11 +53,15 @@ public class MissileBehaviour : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponentInParent<Health>() != null)
+        if (other.gameObject.name == "CenterEye")
         {
-            other.gameObject.GetComponentInParent<Health>().Damage(damageAmount);
+            if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>())
+            {
+                gameObject.SetActive(false);
+                other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>().Shot();
+            }
         }
     }
 }

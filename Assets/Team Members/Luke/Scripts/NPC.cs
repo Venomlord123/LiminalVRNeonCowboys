@@ -20,12 +20,11 @@ public class NPC : MonoBehaviour
     public Vector3 directionToTarget;
     [Tooltip("The amount of time, in seconds, that the NPC should wait before firing each shot")]
     public float shotDelay;
-    private Animator animator;
-    public AudioSource hitsfx;
+    public ParticleSystem npcDeath;
+    public float npcDeathTime;
 
     private void Start()
     {
-        animator = GetComponentInChildren<Animator>();
         playerTarget = FindObjectOfType<VRAvatar>().GetComponentInChildren<Target>().transform;
     }
 
@@ -50,16 +49,14 @@ public class NPC : MonoBehaviour
         Gizmos.DrawLine(NPCFirePoint.position,shotTarget);
     }
 
-    public IEnumerator Shooting()
+    public void CalledDeathTimer()
     {
-        //Todo Do we make the decision on laser type???
-        //reference to gun
-        //raycast from npc arm to player.transform then gun.shoot
-        yield return new WaitForSeconds(shotDelay);
+        StartCoroutine(NPCDeathTimer());
     }
 
-    public void LaserChoice()
+    public IEnumerator NPCDeathTimer()
     {
-        //random range set to be nextBullet
+        yield return new WaitForSeconds(npcDeathTime);
+        Destroy(gameObject);
     }
 }

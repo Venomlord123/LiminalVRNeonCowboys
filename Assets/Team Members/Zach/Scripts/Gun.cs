@@ -18,7 +18,7 @@ public class Gun : MonoBehaviour
     public bool isLeft;
     private float nextFire;
     public List<MeshRenderer> meshRenderers;
-    private Color colour;
+    public Color colour;
 
     public void Start()
     {

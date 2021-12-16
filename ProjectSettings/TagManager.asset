@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Boss
   - NPC
+  - Right
+  - Left
   layers:
   - Default
   - TransparentFX

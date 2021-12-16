@@ -45,16 +45,38 @@ public class NPCBullet : MonoBehaviour
     {
         if (other.gameObject.name == "CenterEye")
         {
-            if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<Gun>())
-            {
-                gameObject.SetActive(false);
-                other.gameObject.GetComponentInParent<VRAvatar>().gameObject.GetComponentInChildren<Gun>().ColourChanging();
-            }
-
-            else if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>())
+            if (other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>())
             {
                 gameObject.SetActive(false);
                 other.gameObject.GetComponentInParent<VRAvatar>().GetComponentInChildren<DamageOverlay>().Shot();
+            }
+        }
+        else if (other.gameObject.name == "Cannon1")
+        {
+            if(other.gameObject == other.GetComponentInParent<GunHolder>().gunMeshes[0])
+            {
+                gameObject.SetActive(false);
+                other.gameObject.GetComponentInParent<GunHolder>().guns[0].GetComponent<Gun>().ColourChanging();
+            }
+            
+        }
+        else if (other.gameObject.name == "Cannon2")
+        { 
+            if (other.gameObject == other.GetComponentInParent<GunHolder>().gunMeshes[1])
+            {
+                gameObject.SetActive(false);
+                other.gameObject.GetComponentInParent<GunHolder>().guns[1].GetComponent<Gun>().ColourChanging();
+            }
+        }
+        else
+        {
+            if (other.gameObject.transform.CompareTag("NPC"))
+            {
+                gameObject.SetActive(true);
+            }
+            else
+            {
+                gameObject.SetActive(false);
             }
         }
     }

@@ -41,16 +41,31 @@ public class PlayerBullet : MonoBehaviour
             other.gameObject.GetComponentInParent<Health>().Damage(damage);
         }
 
-        if (other.gameObject.GetComponent<NPCBulletLong>())
+        else if (other.gameObject.GetComponent<NPCBulletLong>())
         {
             other.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
 
-        if (other.gameObject.GetComponent<MissileBehaviour>())
+        else if (other.gameObject.GetComponent<MissileBehaviour>())
         {
             other.gameObject.SetActive(false);
             gameObject.SetActive(false);
+        }
+        else 
+        {
+            if (other.gameObject.name == "Cannon1")
+            {
+                
+            }
+            else if (other.gameObject.name == "Cannon2")
+            {
+                
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }

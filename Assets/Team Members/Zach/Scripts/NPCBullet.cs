@@ -30,6 +30,7 @@ public class NPCBullet : MonoBehaviour
     public void OnEnable()
     {
         rb.AddForce(transform.forward * speed);
+        Debug.Log("bullet firing");
     }
 
     public void OnDisable()
@@ -71,6 +72,10 @@ public class NPCBullet : MonoBehaviour
         else
         {
             if (other.gameObject.transform.CompareTag("NPC"))
+            {
+                gameObject.SetActive(true);
+            }
+            else if(other.gameObject.transform.CompareTag("Missile"))
             {
                 gameObject.SetActive(true);
             }

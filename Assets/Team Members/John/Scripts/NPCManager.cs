@@ -21,6 +21,7 @@ public class NPCManager : MonoBehaviour
 
     public AudioSource npcSpawnSFX;
     public AudioSource npcDeathSFX;
+    public AudioSource bossDeathSFX;
     public Animator bossAni;
 
     //VARIABLES
@@ -108,6 +109,7 @@ public class NPCManager : MonoBehaviour
             //TODO Why does this not work properly???!
             bossAni.SetBool("isDead", true);
             bossAni.Play("Death");
+            bossDeathSFX.Play();
             thisEnemy.GetComponent<BossWeapon>().shooting = false;
             thisEnemy.GetComponent<MissileLauncher>().isLauching = false;
             EndGame();

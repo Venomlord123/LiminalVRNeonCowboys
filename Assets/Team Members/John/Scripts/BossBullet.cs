@@ -46,6 +46,12 @@ public class BossBullet : MonoBehaviour
             {
                 gameObject.SetActive(true);
             }
+            
+            else if(other.gameObject.transform.CompareTag("Missile"))
+            {
+                gameObject.SetActive(true);
+            }
+            
             else
             {
                 gameObject.SetActive(false);

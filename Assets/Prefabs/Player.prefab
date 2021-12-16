@@ -1064,7 +1064,6 @@ GameObject:
   - component: {fileID: 3752074739082034931}
   - component: {fileID: 3752074739082034929}
   - component: {fileID: 3752074739082034930}
-  - component: {fileID: 3250119712435462944}
   - component: {fileID: 967679017}
   m_Layer: 0
   m_Name: Player
@@ -1140,14 +1139,6 @@ MonoBehaviour:
   m_ActivationPolicy: 0
   m_HoverDelay: 0.5
   m_HoverDuration: 2
---- !u!81 &3250119712435462944
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3752074739082034904}
-  m_Enabled: 1
 --- !u!82 &967679017
 AudioSource:
   m_ObjectHideFlags: 0

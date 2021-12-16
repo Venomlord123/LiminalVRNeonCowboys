@@ -85,6 +85,10 @@ public class MissileBehaviour : MonoBehaviour
             {
                 gameObject.SetActive(true);
             }
+            else if(other.gameObject.transform.CompareTag("BossProjectile"))
+            {
+                gameObject.SetActive(true);
+            }
             else
             {
                 gameObject.SetActive(false);

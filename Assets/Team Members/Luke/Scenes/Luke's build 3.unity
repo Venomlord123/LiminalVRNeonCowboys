@@ -18973,9 +18973,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2129474223105091434, guid: f3476e05db2cb40498890d4d12bbb82e,
         type: 3}
+      propertyPath: availableSpawns.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129474223105091434, guid: f3476e05db2cb40498890d4d12bbb82e,
+        type: 3}
       propertyPath: bossLocation
       value: 
       objectReference: {fileID: 1387574160136650176}
+    - target: {fileID: 2129474223105091434, guid: f3476e05db2cb40498890d4d12bbb82e,
+        type: 3}
+      propertyPath: availableSpawns.Array.data[0]
+      value: 
+      objectReference: {fileID: 453679492}
+    - target: {fileID: 2129474223105091434, guid: f3476e05db2cb40498890d4d12bbb82e,
+        type: 3}
+      propertyPath: availableSpawns.Array.data[1]
+      value: 
+      objectReference: {fileID: 894869463}
+    - target: {fileID: 2129474223105091434, guid: f3476e05db2cb40498890d4d12bbb82e,
+        type: 3}
+      propertyPath: availableSpawns.Array.data[2]
+      value: 
+      objectReference: {fileID: 1839949139}
+    - target: {fileID: 2129474223105091434, guid: f3476e05db2cb40498890d4d12bbb82e,
+        type: 3}
+      propertyPath: availableSpawns.Array.data[3]
+      value: 
+      objectReference: {fileID: 1625705527}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3476e05db2cb40498890d4d12bbb82e, type: 3}
 --- !u!1001 &3246063216817073868
@@ -19059,6 +19084,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8070542712601297584, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070542712601297584, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_TagString
+      value: Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070542712495749325, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070542712495749325, guid: 928c63470929a2c48886e3c3fd502297,
+        type: 3}
+      propertyPath: m_TagString
+      value: Right
+      objectReference: {fileID: 0}
     - target: {fileID: 3752074739082034901, guid: 928c63470929a2c48886e3c3fd502297,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19121,26 +19166,6 @@ PrefabInstance:
     - target: {fileID: 1213440934, guid: 928c63470929a2c48886e3c3fd502297, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070542712601297584, guid: 928c63470929a2c48886e3c3fd502297,
-        type: 3}
-      propertyPath: m_Name
-      value: Cannon2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070542712601297584, guid: 928c63470929a2c48886e3c3fd502297,
-        type: 3}
-      propertyPath: m_TagString
-      value: Left
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070542712495749325, guid: 928c63470929a2c48886e3c3fd502297,
-        type: 3}
-      propertyPath: m_Name
-      value: Cannon1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070542712495749325, guid: 928c63470929a2c48886e3c3fd502297,
-        type: 3}
-      propertyPath: m_TagString
-      value: Right
       objectReference: {fileID: 0}
     - target: {fileID: 2587529534871953426, guid: 928c63470929a2c48886e3c3fd502297,
         type: 3}

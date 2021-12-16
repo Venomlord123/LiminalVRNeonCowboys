@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
             meshRenderer.material.SetColor("_EmissionColor",Color.Lerp(colour, Color.white, 0.33f));
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth == 0)
         {
             manager.Die(gameObject);
         }

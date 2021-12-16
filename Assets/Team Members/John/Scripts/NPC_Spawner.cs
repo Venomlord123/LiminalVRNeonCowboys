@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class NPC_Spawner : MonoBehaviour
 {
-    public void Awake() => NPCManager.AddSpawnPoint(transform);
+    //public void Awake() => NPCManager.AddSpawnPoint(transform);
     
-    private void OnDestroy() => NPCManager.RemoveSpawnPoint(transform);
+   // private void OnDestroy() => NPCManager.RemoveSpawnPoint(transform);
 
     void OnDrawGizmos()
     {

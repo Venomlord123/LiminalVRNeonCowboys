@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class NPCManager : MonoBehaviour
 {   
     [Tooltip("The list of all available spawns currently not occupied by another NPC")]
-    [SerializeField] private static List<Transform> availableSpawns = new List<Transform>();
+    public List<Transform> availableSpawns = new List<Transform>();
     [Tooltip("The position to spawn the boss when the boss round is reached")]
     public Transform bossLocation;
 
@@ -45,11 +45,18 @@ public class NPCManager : MonoBehaviour
     [HideInInspector]
     public bool gameEnded;
 
-    public static void AddSpawnPoint(Transform transform)
+    /*
+    public void AddSpawnPoint(Transform transform)
     {
         availableSpawns.Add(transform);
     }
-    public static void RemoveSpawnPoint(Transform transform) => availableSpawns.Remove(transform);
+    public void RemoveSpawnPoint(Transform transform) => availableSpawns.Remove(transform);
+    */
+
+    public void Start()
+    {
+        ReFillSpawns();
+    }
 
     private void Update()
     {
